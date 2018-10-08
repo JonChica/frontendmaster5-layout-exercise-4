@@ -1,0 +1,77 @@
+$breakpoint-L: 53rem;
+$breakpoint-S: 26rem;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav {
+  display: flex;
+  grid-area: nav;
+  background-color: yellow;
+
+  @media (max-width: $breakpoint-S) {
+    flex-direction: row;
+    align-content: flex-start;
+  }
+
+  @media (min-width: $breakpoint-S) and (max-width: $breakpoint-L) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  @media (min-width: $breakpoint-L) {
+    justify-content: space-around;
+    flex-direction: column;
+    width: 20rem;  
+  }
+}
+
+.grid-container {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+
+  @media (max-width: $breakpoint-S) {
+    grid-template-rows: min-content 1fr;
+    grid-template-areas: 
+      "nav"
+      "cont";
+  }
+  @media (min-width: $breakpoint-S) and (max-width: $breakpoint-L) {
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas: 
+      "nav"
+      "cont";
+  }
+  @media (min-width: $breakpoint-L) {
+    justify-content: center;
+    grid-template-areas: 
+      ". nav cont cont .";
+  }
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  grid-area: cont;
+  width: 100vw;
+
+  @media (min-width: $breakpoint-L) {
+    width: 32rem;
+  }
+}
+
+.content-1 {
+  background-color: aqua;
+  width: 100%;
+  height: 50%;
+}
+
+.content-2 {
+  background-color: chocolate;
+  width: 100%;
+  height: 50%;
+}
